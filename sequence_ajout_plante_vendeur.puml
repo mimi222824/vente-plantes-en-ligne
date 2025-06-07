@@ -1,0 +1,13 @@
+@startuml
+actor Vendeur
+participant "Interface Web" as UI
+participant "ServicePlante" as PlantService
+database "BaseDeDonnées" as DB
+
+Vendeur -> UI : Ajouter une nouvelle plante
+UI -> PlantService : ajouterPlante(plante)
+PlantService -> DB : INSERT plante
+DB --> PlantService : succès
+PlantService --> UI : confirmation
+UI --> Vendeur : Message plante ajoutée
+@enduml
