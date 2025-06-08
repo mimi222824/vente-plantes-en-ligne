@@ -8,15 +8,6 @@ class Utilisateur {
   - motDePasse : String
 }
 
-class Client {
-  - adresseLivraison : String
-}
-
-class Vendeur {
-  - nomBoutique : String
-  - adresse : String
-}
-
 class Plante {
   - id : int
   - nom : String
@@ -43,16 +34,13 @@ class Panier {
   - dateCreation : Date
 }
 
-Utilisateur <|-- Client
-Utilisateur <|-- Vendeur
-
-Client "1" -- "0..1" Panier : a un >
+Utilisateur "1" -- "0..1" Panier : a un >
 
 Panier "1" -- "*" LigneCommande : contient >
 
 Plante "1" -- "*" LigneCommande : est inclus dans >
 
-Client "1" -- "*" Commande : passe >
+Utilisateur "1" -- "*" Commande : passe >
 
 Commande "1" -- "*" LigneCommande : contient >
 @enduml
